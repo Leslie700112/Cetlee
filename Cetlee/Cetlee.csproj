@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C079D6E8-BAE8-4CFC-B834-32076A5D532D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Cetlee</RootNamespace>
+    <AssemblyName>Cetlee</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>checklist-png-5.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DgvFilterPopup, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DgvFilterPopup.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlVallDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlVallDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AlvallFelvitel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlvallFelvitel.Designer.cs">
+      <DependentUpon>AlvallFelvitel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomDataSet.cs">
+      <DependentUpon>BomDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BomDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BomDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BomFelvitel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomFelvitel.Designer.cs">
+      <DependentUpon>BomFelvitel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CetleeKep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CetleeKep.Designer.cs">
+      <DependentUpon>CetleeKep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CetleeKepDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CetleeKepDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DataGridViewPrinter.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Felvitel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Felvitel.Designer.cs">
+      <DependentUpon>Felvitel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FelvitelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FelvitelDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jovahagy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jovahagy.Designer.cs">
+      <DependentUpon>Jovahagy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jovahagyas1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jovahagyas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KonyvDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KonyvDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Konyvelheto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konyvelheto.Designer.cs">
+      <DependentUpon>Konyvelheto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lekerdezes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lekerdezes.Designer.cs">
+      <DependentUpon>Lekerdezes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LekerdezesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LekerdezesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Szamlak.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Szamlak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Számlák.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Számlák.Designer.cs">
+      <DependentUpon>Számlák.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlvallFelvitel.resx">
+      <DependentUpon>AlvallFelvitel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomFelvitel.resx">
+      <DependentUpon>BomFelvitel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CetleeKep.resx">
+      <DependentUpon>CetleeKep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Felvitel.resx">
+      <DependentUpon>Felvitel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jovahagy.resx">
+      <DependentUpon>Jovahagy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konyvelheto.resx">
+      <DependentUpon>Konyvelheto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lekerdezes.resx">
+      <DependentUpon>Lekerdezes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Számlák.resx">
+      <DependentUpon>Számlák.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AlVallDataSet.xsc">
+      <DependentUpon>AlVallDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AlVallDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlVallDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AlVallDataSet.xss">
+      <DependentUpon>AlVallDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="BomDataSet.xsc">
+      <DependentUpon>BomDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BomDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BomDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BomDataSet.xss">
+      <DependentUpon>BomDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CetleeKepDataSet.xsc">
+      <DependentUpon>CetleeKepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CetleeKepDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CetleeKepDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CetleeKepDataSet.xss">
+      <DependentUpon>CetleeKepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FelvitelDataSet.xsc">
+      <DependentUpon>FelvitelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FelvitelDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FelvitelDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FelvitelDataSet.xss">
+      <DependentUpon>FelvitelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Jovahagyas.xsc">
+      <DependentUpon>Jovahagyas.xsd</DependentUpon>
+    </None>
+    <None Include="Jovahagyas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Jovahagyas1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Jovahagyas.xss">
+      <DependentUpon>Jovahagyas.xsd</DependentUpon>
+    </None>
+    <None Include="KonyvDataSet.xsc">
+      <DependentUpon>KonyvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KonyvDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KonyvDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="KonyvDataSet.xss">
+      <DependentUpon>KonyvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LekerdezesDataSet.xsc">
+      <DependentUpon>LekerdezesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LekerdezesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LekerdezesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LekerdezesDataSet.xss">
+      <DependentUpon>LekerdezesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Szamlak.xsc">
+      <DependentUpon>Szamlak.xsd</DependentUpon>
+    </None>
+    <None Include="Szamlak.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Szamlak.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Szamlak.xss">
+      <DependentUpon>Szamlak.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="checklist-png-5.ico" />
+    <None Include="Resources\orange1.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Jovahagyas" targetNamespace="http://tempuri.org/Jovahagyas.xsd" xmlns:mstns="http://tempuri.org/Jovahagyas.xsd" xmlns="http://tempuri.org/Jovahagyas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=SCALA1;Initial Catalog=Fusetech;Persist Security Info=True;User ID=scala_read;Password=scala_read;Connect Timeout=0" IsAppSettingsProperty="false" Modifier="Assembly" Name="FusetechConnectionString (Settings)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NBCetLeeFejTableAdapter" GeneratorDataComponentClassName="NBCetLeeFejTableAdapter" Name="NBCetLeeFej" UserDataComponentName="NBCetLeeFejTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FusetechConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        N.CetLeeID, N.TranzakcioSzam, N.Szallito, PL.SupplierName, N.Osszeg, N.Arfolyam, N.Netto, N.Afa, N.Elteres_O, N.Elteres_Sz, N.Statusz, N.LetrehozasIdeje, N.Keszitette, N.Deviza, N.BruttoFKSZ, P.InvoiceNo, 
+                         CAST(P.InvoiceDate1 AS date) AS InvoiceDate1, P.VATCode, V.Description AS VATDesc, V.Percentage, N.Tipus
+FROM            NBCetLeeFej AS N LEFT OUTER JOIN
+                         ScaCompDB.dbo.VF_PL010300_SupplierFile AS PL ON N.Szallito = PL.SupplierCode LEFT OUTER JOIN
+                         ScaCompDB.dbo.VF_PL030300_PurchaseLedger AS P ON N.Orig_TranzakcioSzam = P.InternRefNo LEFT OUTER JOIN
+                         ScaCompDB.dbo.VF_SY290300_CodeFileVAT AS V ON P.VATCode = V.VAT_Code
+WHERE        (N.Statusz = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CetLeeID" DataSetColumn="CetLeeID" />
+              <Mapping SourceColumn="TranzakcioSzam" DataSetColumn="TranzakcioSzam" />
+              <Mapping SourceColumn="Szallito" DataSetColumn="Szallito" />
+              <Mapping SourceColumn="SupplierName" DataSetColumn="SupplierName" />
+              <Mapping SourceColumn="Osszeg" DataSetColumn="Osszeg" />
+              <Mapping SourceColumn="Arfolyam" DataSetColumn="Arfolyam" />
+              <Mapping SourceColumn="Netto" DataSetColumn="Netto" />
+              <Mapping SourceColumn="Afa" DataSetColumn="Afa" />
+              <Mapping SourceColumn="Elteres_O" DataSetColumn="Elteres_O" />
+              <Mapping SourceColumn="Elteres_Sz" DataSetColumn="Elteres_Sz" />
+              <Mapping SourceColumn="Statusz" DataSetColumn="Statusz" />
+              <Mapping SourceColumn="LetrehozasIdeje" DataSetColumn="LetrehozasIdeje" />
+              <Mapping SourceColumn="Keszitette" DataSetColumn="Keszitette" />
+              <Mapping SourceColumn="Deviza" DataSetColumn="Deviza" />
+              <Mapping SourceColumn="BruttoFKSZ" DataSetColumn="BruttoFKSZ" />
+              <Mapping SourceColumn="InvoiceNo" DataSetColumn="InvoiceNo" />
+              <Mapping SourceColumn="InvoiceDate1" DataSetColumn="InvoiceDate1" />
+              <Mapping SourceColumn="VATCode" DataSetColumn="VATCode" />
+              <Mapping SourceColumn="VATDesc" DataSetColumn="VATDesc" />
+              <Mapping SourceColumn="Percentage" DataSetColumn="Percentage" />
+              <Mapping SourceColumn="Tipus" DataSetColumn="Tipus" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NBCetLeeSorTableAdapter" GeneratorDataComponentClassName="NBCetLeeSorTableAdapter" Name="NBCetLeeSor" UserDataComponentName="NBCetLeeSorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FusetechConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        S.CetLeeISorID, S.TranzakcioSzam, S.Sorszam, S.BeszRendSzam, S.BeszRendSorSzam, S.Megjegyzes, S.TetelSzam, S.RACF, S.BeszAr, S.EgysAr, S.Mennyiseg, S.Koltseghely, S.FKSZ, S.Leiras, 
+                         S.EgysAr * S.Mennyiseg AS Osszeg, F.Deviza
+FROM            NBCetLeeSor AS S LEFT OUTER JOIN
+                         NBCetLeeFej AS F ON S.TranzakcioSzam = F.TranzakcioSzam
+WHERE        (S.TranzakcioSzam = @Transzam)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Transzam" ColumnName="TranzakcioSzam" DataSourceName="Fusetech.dbo.NBCetLeeSor" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Transzam" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="TranzakcioSzam" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CetLeeISorID" DataSetColumn="CetLeeISorID" />
+              <Mapping SourceColumn="TranzakcioSzam" DataSetColumn="TranzakcioSzam" />
+              <Mapping SourceColumn="Sorszam" DataSetColumn="Sorszam" />
+              <Mapping SourceColumn="BeszRendSzam" DataSetColumn="BeszRendSzam" />
+              <Mapping SourceColumn="BeszRendSorSzam" DataSetColumn="BeszRendSorSzam" />
+              <Mapping SourceColumn="Megjegyzes" DataSetColumn="Megjegyzes" />
+              <Mapping SourceColumn="TetelSzam" DataSetColumn="TetelSzam" />
+              <Mapping SourceColumn="RACF" DataSetColumn="RACF" />
+              <Mapping SourceColumn="BeszAr" DataSetColumn="BeszAr" />
+              <Mapping SourceColumn="EgysAr" DataSetColumn="EgysAr" />
+              <Mapping SourceColumn="Mennyiseg" DataSetColumn="Mennyiseg" />
+              <Mapping SourceColumn="Koltseghely" DataSetColumn="Koltseghely" />
+              <Mapping SourceColumn="FKSZ" DataSetColumn="FKSZ" />
+              <Mapping SourceColumn="Leiras" DataSetColumn="Leiras" />
+              <Mapping SourceColumn="Osszeg" DataSetColumn="Osszeg" />
+              <Mapping SourceColumn="Deviza" DataSetColumn="Deviza" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Jovahagyas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Jovahagyas" msprop:Generator_UserDSName="Jovahagyas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NBCetLeeFej" msprop:Generator_TableClassName="NBCetLeeFejDataTable" msprop:Generator_TableVarName="tableNBCetLeeFej" msprop:Generator_RowChangedName="NBCetLeeFejRowChanged" msprop:Generator_TablePropName="NBCetLeeFej" msprop:Generator_RowDeletingName="NBCetLeeFejRowDeleting" msprop:Generator_RowChangingName="NBCetLeeFejRowChanging" msprop:Generator_RowEvHandlerName="NBCetLeeFejRowChangeEventHandler" msprop:Generator_RowDeletedName="NBCetLeeFejRowDeleted" msprop:Generator_RowClassName="NBCetLeeFejRow" msprop:Generator_UserTableName="NBCetLeeFej" msprop:Generator_RowEvArgName="NBCetLeeFejRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CetLeeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCetLeeID" msprop:Generator_ColumnPropNameInRow="CetLeeID" msprop:Generator_ColumnPropNameInTable="CetLeeIDColumn" msprop:Generator_UserColumnName="CetLeeID" type="xs:int" />
+              <xs:element name="TranzakcioSzam" msprop:Generator_ColumnVarNameInTable="columnTranzakcioSzam" msprop:Generator_ColumnPropNameInRow="TranzakcioSzam" msprop:Generator_ColumnPropNameInTable="TranzakcioSzamColumn" msprop:Generator_UserColumnName="TranzakcioSzam">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Szallito" msprop:Generator_ColumnVarNameInTable="columnSzallito" msprop:Generator_ColumnPropNameInRow="Szallito" msprop:Generator_ColumnPropNameInTable="SzallitoColumn" msprop:Generator_UserColumnName="Szallito">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierName" msprop:Generator_ColumnVarNameInTable="columnSupplierName" msprop:Generator_ColumnPropNameInRow="SupplierName" msprop:Generator_ColumnPropNameInTable="SupplierNameColumn" msprop:Generator_UserColumnName="SupplierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Osszeg" msprop:Generator_ColumnVarNameInTable="columnOsszeg" msprop:Generator_ColumnPropNameInRow="Osszeg" msprop:Generator_ColumnPropNameInTable="OsszegColumn" msprop:Generator_UserColumnName="Osszeg" type="xs:decimal" />
+              <xs:element name="Arfolyam" msprop:Generator_ColumnVarNameInTable="columnArfolyam" msprop:Generator_ColumnPropNameInRow="Arfolyam" msprop:Generator_ColumnPropNameInTable="ArfolyamColumn" msprop:Generator_UserColumnName="Arfolyam" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Netto" msprop:Generator_ColumnVarNameInTable="columnNetto" msprop:Generator_ColumnPropNameInRow="Netto" msprop:Generator_ColumnPropNameInTable="NettoColumn" msprop:Generator_UserColumnName="Netto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Afa" msprop:Generator_ColumnVarNameInTable="columnAfa" msprop:Generator_ColumnPropNameInRow="Afa" msprop:Generator_ColumnPropNameInTable="AfaColumn" msprop:Generator_UserColumnName="Afa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Elteres_O" msprop:Generator_ColumnVarNameInTable="columnElteres_O" msprop:Generator_ColumnPropNameInRow="Elteres_O" msprop:Generator_ColumnPropNameInTable="Elteres_OColumn" msprop:Generator_UserColumnName="Elteres_O" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Elteres_Sz" msprop:Generator_ColumnVarNameInTable="columnElteres_Sz" msprop:Generator_ColumnPropNameInRow="Elteres_Sz" msprop:Generator_ColumnPropNameInTable="Elteres_SzColumn" msprop:Generator_UserColumnName="Elteres_Sz" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Statusz" msprop:Generator_ColumnVarNameInTable="columnStatusz" msprop:Generator_ColumnPropNameInRow="Statusz" msprop:Generator_ColumnPropNameInTable="StatuszColumn" msprop:Generator_UserColumnName="Statusz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LetrehozasIdeje" msprop:Generator_ColumnVarNameInTable="columnLetrehozasIdeje" msprop:Generator_ColumnPropNameInRow="LetrehozasIdeje" msprop:Generator_ColumnPropNameInTable="LetrehozasIdejeColumn" msprop:Generator_UserColumnName="LetrehozasIdeje" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Keszitette" msprop:Generator_ColumnVarNameInTable="columnKeszitette" msprop:Generator_ColumnPropNameInRow="Keszitette" msprop:Generator_ColumnPropNameInTable="KeszitetteColumn" msprop:Generator_UserColumnName="Keszitette" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deviza" msprop:Generator_ColumnVarNameInTable="columnDeviza" msprop:Generator_ColumnPropNameInRow="Deviza" msprop:Generator_ColumnPropNameInTable="DevizaColumn" msprop:Generator_UserColumnName="Deviza" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BruttoFKSZ" msprop:Generator_ColumnVarNameInTable="columnBruttoFKSZ" msprop:Generator_ColumnPropNameInRow="BruttoFKSZ" msprop:Generator_ColumnPropNameInTable="BruttoFKSZColumn" msprop:Generator_UserColumnName="BruttoFKSZ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceNo" msprop:Generator_ColumnVarNameInTable="columnInvoiceNo" msprop:Generator_ColumnPropNameInRow="InvoiceNo" msprop:Generator_ColumnPropNameInTable="InvoiceNoColumn" msprop:Generator_UserColumnName="InvoiceNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceDate1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate1" msprop:Generator_ColumnPropNameInRow="InvoiceDate1" msprop:Generator_ColumnPropNameInTable="InvoiceDate1Column" msprop:Generator_UserColumnName="InvoiceDate1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VATCode" msprop:Generator_ColumnVarNameInTable="columnVATCode" msprop:Generator_ColumnPropNameInRow="VATCode" msprop:Generator_ColumnPropNameInTable="VATCodeColumn" msprop:Generator_UserColumnName="VATCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VATDesc" msprop:Generator_ColumnVarNameInTable="columnVATDesc" msprop:Generator_ColumnPropNameInRow="VATDesc" msprop:Generator_ColumnPropNameInTable="VATDescColumn" msprop:Generator_UserColumnName="VATDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Percentage" msprop:Generator_ColumnVarNameInTable="columnPercentage" msprop:Generator_ColumnPropNameInRow="Percentage" msprop:Generator_ColumnPropNameInTable="PercentageColumn" msprop:Generator_UserColumnName="Percentage" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipus" msprop:Generator_ColumnVarNameInTable="columnTipus" msprop:Generator_ColumnPropNameInRow="Tipus" msprop:Generator_ColumnPropNameInTable="TipusColumn" msprop:Generator_UserColumnName="Tipus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NBCetLeeSor" msprop:Generator_TableClassName="NBCetLeeSorDataTable" msprop:Generator_TableVarName="tableNBCetLeeSor" msprop:Generator_RowChangedName="NBCetLeeSorRowChanged" msprop:Generator_TablePropName="NBCetLeeSor" msprop:Generator_RowDeletingName="NBCetLeeSorRowDeleting" msprop:Generator_RowChangingName="NBCetLeeSorRowChanging" msprop:Generator_RowEvHandlerName="NBCetLeeSorRowChangeEventHandler" msprop:Generator_RowDeletedName="NBCetLeeSorRowDeleted" msprop:Generator_RowClassName="NBCetLeeSorRow" msprop:Generator_UserTableName="NBCetLeeSor" msprop:Generator_RowEvArgName="NBCetLeeSorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CetLeeISorID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCetLeeISorID" msprop:Generator_ColumnPropNameInRow="CetLeeISorID" msprop:Generator_ColumnPropNameInTable="CetLeeISorIDColumn" msprop:Generator_UserColumnName="CetLeeISorID" type="xs:int" />
+              <xs:element name="TranzakcioSzam" msprop:Generator_ColumnVarNameInTable="columnTranzakcioSzam" msprop:Generator_ColumnPropNameInRow="TranzakcioSzam" msprop:Generator_ColumnPropNameInTable="TranzakcioSzamColumn" msprop:Generator_UserColumnName="TranzakcioSzam">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sorszam" msprop:Generator_ColumnVarNameInTable="columnSorszam" msprop:Generator_ColumnPropNameInRow="Sorszam" msprop:Generator_ColumnPropNameInTable="SorszamColumn" msprop:Generator_UserColumnName="Sorszam" type="xs:int" />
+              <xs:element name="BeszRendSzam" msprop:Generator_ColumnVarNameInTable="columnBeszRendSzam" msprop:Generator_ColumnPropNameInRow="BeszRendSzam" msprop:Generator_ColumnPropNameInTable="BeszRendSzamColumn" msprop:Generator_UserColumnName="BeszRendSzam" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BeszRendSorSzam" msprop:Generator_ColumnVarNameInTable="columnBeszRendSorSzam" msprop:Generator_ColumnPropNameInRow="BeszRendSorSzam" msprop:Generator_ColumnPropNameInTable="BeszRendSorSzamColumn" msprop:Generator_UserColumnName="BeszRendSorSzam" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Megjegyzes" msprop:Generator_ColumnVarNameInTable="columnMegjegyzes" msprop:Generator_ColumnPropNameInRow="Megjegyzes" msprop:Generator_ColumnPropNameInTable="MegjegyzesColumn" msprop:Generator_UserColumnName="Megjegyzes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TetelSzam" msprop:Generator_ColumnVarNameInTable="columnTetelSzam" msprop:Generator_ColumnPropNameInRow="TetelSzam" msprop:Generator_ColumnPropNameInTable="TetelSzamColumn" msprop:Generator_UserColumnName="TetelSzam" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RACF" msprop:Generator_ColumnVarNameInTable="columnRACF" msprop:Generator_ColumnPropNameInRow="RACF" msprop:Generator_ColumnPropNameInTable="RACFColumn" msprop:Generator_UserColumnName="RACF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BeszAr" msprop:Generator_ColumnVarNameInTable="columnBeszAr" msprop:Generator_ColumnPropNameInRow="BeszAr" msprop:Generator_ColumnPropNameInTable="BeszArColumn" msprop:Generator_UserColumnName="BeszAr" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EgysAr" msprop:Generator_ColumnVarNameInTable="columnEgysAr" msprop:Generator_ColumnPropNameInRow="EgysAr" msprop:Generator_ColumnPropNameInTable="EgysArColumn" msprop:Generator_UserColumnName="EgysAr" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Mennyiseg" msprop:Generator_ColumnVarNameInTable="columnMennyiseg" msprop:Generator_ColumnPropNameInRow="Mennyiseg" msprop:Generator_ColumnPropNameInTable="MennyisegColumn" msprop:Generator_UserColumnName="Mennyiseg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Koltseghely" msprop:Generator_ColumnVarNameInTable="columnKoltseghely" msprop:Generator_ColumnPropNameInRow="Koltseghely" msprop:Generator_ColumnPropNameInTable="KoltseghelyColumn" msprop:Generator_UserColumnName="Koltseghely" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKSZ" msprop:Generator_ColumnVarNameInTable="columnFKSZ" msprop:Generator_ColumnPropNameInRow="FKSZ" msprop:Generator_ColumnPropNameInTable="FKSZColumn" msprop:Generator_UserColumnName="FKSZ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Leiras" msprop:Generator_ColumnVarNameInTable="columnLeiras" msprop:Generator_ColumnPropNameInRow="Leiras" msprop:Generator_ColumnPropNameInTable="LeirasColumn" msprop:Generator_UserColumnName="Leiras" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Osszeg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOsszeg" msprop:Generator_ColumnPropNameInRow="Osszeg" msprop:Generator_ColumnPropNameInTable="OsszegColumn" msprop:Generator_UserColumnName="Osszeg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Deviza" msprop:Generator_ColumnVarNameInTable="columnDeviza" msprop:Generator_ColumnPropNameInRow="Deviza" msprop:Generator_ColumnPropNameInTable="DevizaColumn" msprop:Generator_UserColumnName="Deviza" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Szamlak" targetNamespace="http://tempuri.org/Szamlak.xsd" xmlns:mstns="http://tempuri.org/Szamlak.xsd" xmlns="http://tempuri.org/Szamlak.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ScaCompDBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ScaCompDBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Cetlee.Properties.Settings.GlobalReference.Default.ScaCompDBConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VF_PL030300_PurchaseLedgerTableAdapter" GeneratorDataComponentClassName="VF_PL030300_PurchaseLedgerTableAdapter" Name="VF_PL030300_PurchaseLedger" UserDataComponentName="VF_PL030300_PurchaseLedgerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ScaCompDBConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PL03.InternRefNo, PL03.SupplierCode, PL01.SupplierName, PL03.InvoiceNo, CAST(PL03.InvoiceDate1 AS date) AS InvoiceDate1, CAST(PL03.BookEntrDate AS date) AS BookenrDate, CAST(PL03.DueDate AS date) AS DueDate, 
+                         PL03.InvAmoLocCur - PL03.SalesTaxAmnt AS InvAmoLocCur, CAST(PL03.InvAmoOriCur AS decimal(18, 2)) AS InvAmoOriCur, PL03.SalesTaxAmnt, PL03.VATCode, PL03.PaymentTermsCode, D.CurrencyDescription, 
+                         V.Description AS VATDesc, V.Percentage, CF.TranzakcioSzam, CF.Statusz, CF.Elteres_O, CF.Elteres_Sz
+FROM            VF_PL030300_PurchaseLedger_Open AS PL03 LEFT OUTER JOIN
+                         VF_PL010300_SupplierFile AS PL01 ON PL03.SupplierCode = PL01.SupplierCode LEFT OUTER JOIN
+                         VF_SYCD0300_DevizaNevek AS D ON PL03.CurrencyCode = D.CurrencyCode_2 LEFT OUTER JOIN
+                         VF_SY290300_CodeFileVAT AS V ON PL03.VATCode = V.VAT_Code LEFT OUTER JOIN
+                         Fusetech.dbo.NBCetLeeFej AS CF ON SUBSTRING(PL03.InternRefNo, PATINDEX('%[^0]%', PL03.InternRefNo), 1 + LEN(PL03.InternRefNo) - PATINDEX('%[^0]%', PL03.InternRefNo)) = CF.TranzakcioSzam
+WHERE        (YEAR(PL03.InvoiceDate1) &gt; 2019)
+ORDER BY PL03.InternRefNo DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InternRefNo" DataSetColumn="InternRefNo" />
+              <Mapping SourceColumn="SupplierCode" DataSetColumn="SupplierCode" />
+              <Mapping SourceColumn="SupplierName" DataSetColumn="SupplierName" />
+              <Mapping SourceColumn="InvoiceNo" DataSetColumn="InvoiceNo" />
+              <Mapping SourceColumn="InvoiceDate1" DataSetColumn="InvoiceDate1" />
+              <Mapping SourceColumn="BookenrDate" DataSetColumn="BookenrDate" />
+              <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
+              <Mapping SourceColumn="InvAmoLocCur" DataSetColumn="InvAmoLocCur" />
+              <Mapping SourceColumn="InvAmoOriCur" DataSetColumn="InvAmoOriCur" />
+              <Mapping SourceColumn="SalesTaxAmnt" DataSetColumn="SalesTaxAmnt" />
+              <Mapping SourceColumn="VATCode" DataSetColumn="VATCode" />
+              <Mapping SourceColumn="PaymentTermsCode" DataSetColumn="PaymentTermsCode" />
+              <Mapping SourceColumn="CurrencyDescription" DataSetColumn="CurrencyDescription" />
+              <Mapping SourceColumn="VATDesc" DataSetColumn="VATDesc" />
+              <Mapping SourceColumn="Percentage" DataSetColumn="Percentage" />
+              <Mapping SourceColumn="TranzakcioSzam" DataSetColumn="TranzakcioSzam" />
+              <Mapping SourceColumn="Statusz" DataSetColumn="Statusz" />
+              <Mapping SourceColumn="Elteres_O" DataSetColumn="Elteres_O" />
+              <Mapping SourceColumn="Elteres_Sz" DataSetColumn="Elteres_Sz" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Szamlak" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Szamlak" msprop:Generator_UserDSName="Szamlak">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VF_PL030300_PurchaseLedger" msprop:Generator_TableClassName="VF_PL030300_PurchaseLedgerDataTable" msprop:Generator_TableVarName="tableVF_PL030300_PurchaseLedger" msprop:Generator_TablePropName="VF_PL030300_PurchaseLedger" msprop:Generator_RowDeletingName="VF_PL030300_PurchaseLedgerRowDeleting" msprop:Generator_RowChangingName="VF_PL030300_PurchaseLedgerRowChanging" msprop:Generator_RowEvHandlerName="VF_PL030300_PurchaseLedgerRowChangeEventHandler" msprop:Generator_RowDeletedName="VF_PL030300_PurchaseLedgerRowDeleted" msprop:Generator_UserTableName="VF_PL030300_PurchaseLedger" msprop:Generator_RowChangedName="VF_PL030300_PurchaseLedgerRowChanged" msprop:Generator_RowEvArgName="VF_PL030300_PurchaseLedgerRowChangeEvent" msprop:Generator_RowClassName="VF_PL030300_PurchaseLedgerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InternRefNo" msprop:Generator_ColumnVarNameInTable="columnInternRefNo" msprop:Generator_ColumnPropNameInRow="InternRefNo" msprop:Generator_ColumnPropNameInTable="InternRefNoColumn" msprop:Generator_UserColumnName="InternRefNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierCode" msprop:Generator_ColumnVarNameInTable="columnSupplierCode" msprop:Generator_ColumnPropNameInRow="SupplierCode" msprop:Generator_ColumnPropNameInTable="SupplierCodeColumn" msprop:Generator_UserColumnName="SupplierCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierName" msprop:Generator_ColumnVarNameInTable="columnSupplierName" msprop:Generator_ColumnPropNameInRow="SupplierName" msprop:Generator_ColumnPropNameInTable="SupplierNameColumn" msprop:Generator_UserColumnName="SupplierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceNo" msprop:Generator_ColumnVarNameInTable="columnInvoiceNo" msprop:Generator_ColumnPropNameInRow="InvoiceNo" msprop:Generator_ColumnPropNameInTable="InvoiceNoColumn" msprop:Generator_UserColumnName="InvoiceNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceDate1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate1" msprop:Generator_ColumnPropNameInRow="InvoiceDate1" msprop:Generator_ColumnPropNameInTable="InvoiceDate1Column" msprop:Generator_UserColumnName="InvoiceDate1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookenrDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBookenrDate" msprop:Generator_ColumnPropNameInRow="BookenrDate" msprop:Generator_ColumnPropNameInTable="BookenrDateColumn" msprop:Generator_UserColumnName="BookenrDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DueDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDueDate" msprop:Generator_ColumnPropNameInRow="DueDate" msprop:Generator_ColumnPropNameInTable="DueDateColumn" msprop:Generator_UserColumnName="DueDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InvAmoLocCur" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInvAmoLocCur" msprop:Generator_ColumnPropNameInRow="InvAmoLocCur" msprop:Generator_ColumnPropNameInTable="InvAmoLocCurColumn" msprop:Generator_UserColumnName="InvAmoLocCur" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InvAmoOriCur" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInvAmoOriCur" msprop:Generator_ColumnPropNameInRow="InvAmoOriCur" msprop:Generator_ColumnPropNameInTable="InvAmoOriCurColumn" msprop:Generator_UserColumnName="InvAmoOriCur" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SalesTaxAmnt" msprop:Generator_ColumnVarNameInTable="columnSalesTaxAmnt" msprop:Generator_ColumnPropNameInRow="SalesTaxAmnt" msprop:Generator_ColumnPropNameInTable="SalesTaxAmntColumn" msprop:Generator_UserColumnName="SalesTaxAmnt" type="xs:decimal" />
+              <xs:element name="VATCode" msprop:Generator_ColumnVarNameInTable="columnVATCode" msprop:Generator_ColumnPropNameInRow="VATCode" msprop:Generator_ColumnPropNameInTable="VATCodeColumn" msprop:Generator_UserColumnName="VATCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PaymentTermsCode" msprop:Generator_ColumnVarNameInTable="columnPaymentTermsCode" msprop:Generator_ColumnPropNameInRow="PaymentTermsCode" msprop:Generator_ColumnPropNameInTable="PaymentTermsCodeColumn" msprop:Generator_UserColumnName="PaymentTermsCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CurrencyDescription" msprop:Generator_ColumnVarNameInTable="columnCurrencyDescription" msprop:Generator_ColumnPropNameInRow="CurrencyDescription" msprop:Generator_ColumnPropNameInTable="CurrencyDescriptionColumn" msprop:Generator_UserColumnName="CurrencyDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VATDesc" msprop:Generator_ColumnVarNameInTable="columnVATDesc" msprop:Generator_ColumnPropNameInRow="VATDesc" msprop:Generator_ColumnPropNameInTable="VATDescColumn" msprop:Generator_UserColumnName="VATDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Percentage" msprop:Generator_ColumnVarNameInTable="columnPercentage" msprop:Generator_ColumnPropNameInRow="Percentage" msprop:Generator_ColumnPropNameInTable="PercentageColumn" msprop:Generator_UserColumnName="Percentage" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TranzakcioSzam" msprop:Generator_ColumnVarNameInTable="columnTranzakcioSzam" msprop:Generator_ColumnPropNameInRow="TranzakcioSzam" msprop:Generator_ColumnPropNameInTable="TranzakcioSzamColumn" msprop:Generator_UserColumnName="TranzakcioSzam" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Statusz" msprop:Generator_ColumnVarNameInTable="columnStatusz" msprop:Generator_ColumnPropNameInRow="Statusz" msprop:Generator_ColumnPropNameInTable="StatuszColumn" msprop:Generator_UserColumnName="Statusz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Elteres_O" msprop:Generator_ColumnVarNameInTable="columnElteres_O" msprop:Generator_ColumnPropNameInRow="Elteres_O" msprop:Generator_ColumnPropNameInTable="Elteres_OColumn" msprop:Generator_UserColumnName="Elteres_O" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Elteres_Sz" msprop:Generator_ColumnVarNameInTable="columnElteres_Sz" msprop:Generator_ColumnPropNameInRow="Elteres_Sz" msprop:Generator_ColumnPropNameInTable="Elteres_SzColumn" msprop:Generator_UserColumnName="Elteres_Sz" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VF_PL030300_PurchaseLedger" />
+      <xs:field xpath="mstns:SupplierCode" />
+      <xs:field xpath="mstns:InvoiceNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
